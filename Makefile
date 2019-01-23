@@ -32,38 +32,38 @@ veryclean: clean
 	-rm -rf node_modules
 	-rm -rf bower_components
 
-lint: dependencies package.json bower.json
-	$(NODE_MODULES)/jsonlint package.json -q
-	$(NODE_MODULES)/jsonlint bower.json -q
+# lint: dependencies package.json bower.json
+# 	$(NODE_MODULES)/jsonlint package.json -q
+# 	$(NODE_MODULES)/jsonlint bower.json -q
 
-	$(NODE_MODULES)/eslint src/*.js
-	$(NODE_MODULES)/eslint test/*.js
+# 	$(NODE_MODULES)/eslint src/*.js
+# 	$(NODE_MODULES)/eslint test/*.js
 
-test: dependencies dist/sequence-diagram-min.js
+# test: dependencies dist/sequence-diagram-min.js
 
-	# Test the un-minifed file (with underscore)
-	$(NODE_MODULES)/qunit \
-		-c dist/sequence-diagram.js \
-		-t test/*-tests.js \
-		-d test/*-mock.js $(BOWER_COMPONENTS)/underscore/underscore-min.js
+# 	# Test the un-minifed file (with underscore)
+# 	$(NODE_MODULES)/qunit \
+# 		-c dist/sequence-diagram.js \
+# 		-t test/*-tests.js \
+# 		-d test/*-mock.js $(BOWER_COMPONENTS)/underscore/underscore-min.js
 
-	# Test the un-minifed file (with lodash)
-	$(NODE_MODULES)/qunit \
-		-c dist/sequence-diagram.js \
-		-t test/*-tests.js \
-		-d test/*-mock.js $(BOWER_COMPONENTS)/lodash/dist/lodash.min.js
+# 	# Test the un-minifed file (with lodash)
+# 	$(NODE_MODULES)/qunit \
+# 		-c dist/sequence-diagram.js \
+# 		-t test/*-tests.js \
+# 		-d test/*-mock.js $(BOWER_COMPONENTS)/lodash/dist/lodash.min.js
 
-	# Test the minifed file (with underscore)
-	$(NODE_MODULES)/qunit \
-		-c dist/sequence-diagram-min.js \
-		-t test/*-tests.js \
-		-d test/*-mock.js $(BOWER_COMPONENTS)/underscore/underscore-min.js
+# 	# Test the minifed file (with underscore)
+# 	$(NODE_MODULES)/qunit \
+# 		-c dist/sequence-diagram-min.js \
+# 		-t test/*-tests.js \
+# 		-d test/*-mock.js $(BOWER_COMPONENTS)/underscore/underscore-min.js
 
-	# Test the minifed file (with lodash)
-	$(NODE_MODULES)/qunit \
-		-c dist/sequence-diagram-min.js \
-		-t test/*-tests.js \
-		-d test/*-mock.js $(BOWER_COMPONENTS)/lodash/dist/lodash.min.js
+# 	# Test the minifed file (with lodash)
+# 	$(NODE_MODULES)/qunit \
+# 		-c dist/sequence-diagram-min.js \
+# 		-t test/*-tests.js \
+# 		-d test/*-mock.js $(BOWER_COMPONENTS)/lodash/dist/lodash.min.js
 
 build/grammar.js: src/grammar.jison
 	mkdir -p build

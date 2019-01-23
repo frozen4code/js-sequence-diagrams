@@ -71,6 +71,11 @@ if (typeof Snap != 'undefined') {
         throw new Error('WebFont is required (https://github.com/typekit/webfontloader).');
       }
 
+      if (fontFamily != "danielbd"){
+        callback()
+        return;
+      }
+
       if (LOADED_FONTS[fontFamily]) {
         // If already loaded, just return instantly.
         callback();
